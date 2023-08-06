@@ -29,7 +29,6 @@ public:
         return x;
     }
     int minPathSum(vector<vector<int>>& grid) {
-        cout<<grid.size()<<endl<<grid[0].size();
         return minSum(grid,0,0);
     }
 };

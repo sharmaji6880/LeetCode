@@ -17,6 +17,7 @@ public:
         for(auto x:odd) {
             nums.push_back(x);
         }
-        return nums;
+        vector<int> arr = nums;
+        return arr;
     }
 };

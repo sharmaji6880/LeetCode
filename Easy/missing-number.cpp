@@ -1,18 +1,15 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        map<int,int> mymap;
-        int n=nums.size();
-        for(int i=0;i<n;i++) {
-            mymap[nums[i]]++;
+        int sum=0;
+        for(auto x:nums) {
+            sum+=x;
         }
-        int ans;
-        for(int i=0;i<=n;i++) {
-            if(!(mymap.count(i))) {
-                ans=i;
-                break;
-            }
+        int totalSum=nums.size()*(nums.size()+1)/2;
+        if(totalSum-sum) {
+            return totalSum-sum;
         }
-        return ans;
+        return 0;
+        
     }
 };

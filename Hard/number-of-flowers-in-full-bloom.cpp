@@ -1,3 +1,5 @@
+//This is a brute force approach and it is a really inefficent one.
+//It might give you TLE (Time Limit Exceeded) error for large inputs.
 class Solution {
 public:
     vector<int> fullBloomFlowers(vector<vector<int>>& flowers, vector<int>& people) {

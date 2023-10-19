@@ -1,3 +1,4 @@
+//In this solution, we have used the stack data structure
 class Solution {
 public:
     bool backspaceCompare(string s, string t) {

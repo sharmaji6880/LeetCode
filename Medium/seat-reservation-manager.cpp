@@ -16,11 +16,16 @@ public:
             smallest=-1;
             return ans;
         }
+        int flag=0;
         for(int i=smallest;i<seats.size();i++) {
             if(seats[i]==0) {
                 smallest=i+1;
+                flag=1;
                 break;
             }
+        }
+        if(!flag) {
+            smallest=-1;
         }
         return ans;
     }

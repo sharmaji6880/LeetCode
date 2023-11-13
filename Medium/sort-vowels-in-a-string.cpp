@@ -7,13 +7,11 @@ public:
         return false;
     }
     static bool cmp(char a, char b) {
-        if(a <= b) {
-            return true;
-        }
-        return false;
+       return a < b;
     }
     string sortVowels(string s) {
-        vector<char> vowels,indices;
+        vector<char> vowels;
+        vector<int> indices;
         for(int i=0;i<s.size();i++) {
             if(isVowel(s[i])) {
                 vowels.push_back(s[i]);

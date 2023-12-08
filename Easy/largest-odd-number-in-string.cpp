@@ -1,3 +1,5 @@
+// This is a brute force approach
+// For large inputs, it may result into TLE(Time Limit Exceeded) or MLE(Memory Limit Exceeded)
 class Solution {
 public:
     static bool cmp(string s1,string s2) {

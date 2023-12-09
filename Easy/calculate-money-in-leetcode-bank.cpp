@@ -1,18 +1,16 @@
 class Solution {
 public:
     int totalMoney(int n) {
-        long ans=0;
-        int prev=0;
-        int money=0;
-        for(int i=1;i<=n;i++) {
+        long ans=1;
+        int prev=1;
+        for(int i=2;i<=n;i++) {
             if(i%7==1) {
-                money=prev+1;
-                prev=money;
-                ans+=money;
+                prev-=5;
+                ans+=prev;
                 continue;
             }
-            money+=1;
-            ans+=money;
+            prev+=1;
+            ans+=prev;
         }
         return ans;
     }

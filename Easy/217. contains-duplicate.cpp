@@ -1,3 +1,4 @@
+// This approach doesn't use extra memory
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
@@ -8,5 +9,21 @@ public:
             }
         }
         return false;
+    }
+};
+
+
+// This approach uses extra memory
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        set<int> s;
+        for(auto x:nums) {
+            s.insert(x);
+        }
+        if(s.size()==nums.size()) {
+            return false;
+        }
+        return true;
     }
 };

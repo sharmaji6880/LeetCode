@@ -2,24 +2,13 @@ class Solution {
 public:
     void duplicateZeros(vector<int>& arr) {
 
-        int n=arr.size();
-
-        vector<int> ans;
-        for(auto x:arr) {
-            if(x==0) {
-                ans.push_back(0);
-                if(ans.size()==n) {
-                    break;
+        for(int i=arr.size()-1;i>=0;i--) {
+            if(arr[i]==0) {
+                for(int j=arr.size()-1;j>i;j--) {
+                    arr[j]=arr[j-1];
                 }
-                ans.push_back(0);
-            }else {
-                ans.push_back(x);
-            }
-            if(ans.size()==n) {
-                break;
             }
         }
-        arr=ans;
         
     }
 };

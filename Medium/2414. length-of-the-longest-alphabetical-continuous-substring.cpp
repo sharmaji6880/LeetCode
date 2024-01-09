@@ -1,3 +1,4 @@
+// This is a 2-pointer based approach
 class Solution {
 public:
     int longestContinuousSubstring(string s) {
@@ -19,6 +20,33 @@ public:
             if(j-i > Max) {
                 Max=j-i;
             }
+        }
+        return Max;
+    }
+};
+
+// This approach makes use of Stack Data Structure
+class Solution {
+public:
+    int longestContinuousSubstring(string s) {
+        int Max=0;
+        stack<int> st;
+
+        for(auto x:s) {
+            if(st.empty()) {
+                st.push(x);
+            }else if(x==st.top()+1) {
+                st.push(x);
+            }else {
+                if(st.size() > Max) {
+                    Max=st.size();
+                }
+                st={};
+                st.push(x);
+            }
+        }
+        if(st.size() > Max) {
+            Max=st.size();
         }
         return Max;
     }

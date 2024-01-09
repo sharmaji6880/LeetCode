@@ -1,23 +1,22 @@
 class Solution {
 public:
-    vector<int> nodes;
+    int sum,low,high;
     void preorder(TreeNode* root) {
         
         if(root==NULL) {
             return;
         }
-        nodes.push_back(root->val);
+        if(root->val >= low && root->val <= high) {
+            sum+=root->val;
+        }
         preorder(root->left);
         preorder(root->right);
     }
     int rangeSumBST(TreeNode* root, int low, int high) {
-        int sum=0;
+        sum=0;
+        this->low = low;
+        this->high = high;
         preorder(root);
-        for(auto x:nodes) {
-            if(x>=low && x<=high) {
-                sum+=x;
-            }
-        }
         return sum;
     }
 };

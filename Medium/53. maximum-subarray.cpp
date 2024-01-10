@@ -1,3 +1,5 @@
+// This is a brute force approach
+// The time complexity for this approach is O(n^3)
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {

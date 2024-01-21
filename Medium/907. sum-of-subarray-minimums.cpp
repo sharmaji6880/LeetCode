@@ -1,3 +1,6 @@
+// Solution 1
+// This is a Dynamic Programming based approach
+// This approach may result into MLE(Memory Limit Exceeded)
 class Solution {
 public:
     int sumSubarrayMins(vector<int>& arr) {

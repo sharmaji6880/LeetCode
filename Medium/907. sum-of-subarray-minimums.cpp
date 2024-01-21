@@ -1,6 +1,32 @@
 // Solution 1
+// This is a brute force approach where, for every possible contiguous subarray, we find the minimum element in the subarray and add this min element to the result.
+// For larger inputs, this may result into TLE(Time Limit Exceeded).
+class Solution {
+public:
+    int sumSubarrayMins(vector<int>& arr) {
+        int n = arr.size();
+        int ans = 0;
+
+        for(int i=0;i<n;i++) {
+            for(int j=i;j<n;j++) {
+                int Min = 30001;
+                for(int k=i;k<=j;k++) {
+                    if(arr[k] < Min) {
+                        Min = arr[k];
+                    }
+                }
+                ans = (ans+Min) % 1000000007 ;
+            }
+        }
+
+        return ans;
+    }
+};
+
+
+// Solution 2
 // This is a Dynamic Programming based approach
-// This approach may result into MLE(Memory Limit Exceeded)
+// For larger inputs, this approach may result into MLE(Memory Limit Exceeded)
 class Solution {
 public:
     int sumSubarrayMins(vector<int>& arr) {

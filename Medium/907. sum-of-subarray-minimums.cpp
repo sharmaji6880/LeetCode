@@ -52,3 +52,35 @@ public:
         return ans;
     }
 };
+
+
+// Solution 3 
+// This is an improved version of the brute force approach.
+// However, it may also result into TLE for larger inputs.
+
+class Solution {
+public:
+    int sumSubarrayMins(vector<int>& arr) {
+        int n = arr.size();
+        long ans = 0;
+
+        for(int i=0;i<n;i++) {
+
+            int Min; // varibale to store the minimum element in the subarray
+
+            for(int j=i;j<n;j++) {
+
+                if(i == j) { // i.e, subarray is of size 1
+                    Min = arr[i];
+                    ans = (ans + Min) % 1000000007 ;
+                    continue;
+                }
+                Min = min(Min, arr[j]);
+                ans = (ans + Min) % 1000000007 ;
+
+            }
+        }
+
+        return ans;
+    }
+};

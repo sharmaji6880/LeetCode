@@ -1,6 +1,6 @@
 // Solution 1
-// This is a recursive solution
-// It is not advised to use this approach as it can lead to TLE even for small inputs
+// This is a recursive solution.
+// It is not advised to use this approach as it can lead to TLE even for smaller inputs.
 class Solution {
 public:
     int lcs(int i,int j, string s1, string s2) {
@@ -19,6 +19,9 @@ public:
     }
 };
 
+
+// Solution 2
+// This is a Dynamic Programming based approach.
 class Solution {
 public:
     int longestCommonSubsequence(string text1, string text2) {

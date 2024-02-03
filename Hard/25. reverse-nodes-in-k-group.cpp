@@ -2,7 +2,7 @@ class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
 
-        int len=0; // This is a variable to store the length of the linked list
+        int len=0; // This is a variable to store the length of the linked list.
 
         ListNode* current=head; // This is a pointer to traverse the linked list
         

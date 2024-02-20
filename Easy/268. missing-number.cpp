@@ -6,10 +6,8 @@ public:
             sum+=x;
         }
         int totalSum=nums.size()*(nums.size()+1)/2;
-        if(totalSum-sum) {
-            return totalSum-sum;
-        }
-        return 0;
+        
+        return totalSum-sum;
         
     }
 };

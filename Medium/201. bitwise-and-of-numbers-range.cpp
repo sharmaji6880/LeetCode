@@ -1,3 +1,5 @@
+// This is a brute force approach
+// For large inputs, it will result into TLE
 class Solution {
 public:
     int rangeBitwiseAnd(int left, int right) {

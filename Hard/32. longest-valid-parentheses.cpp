@@ -1,3 +1,5 @@
+
+// Solution without using Stack
 class Solution {
 public:
     
@@ -36,6 +38,40 @@ public:
             }
         }
         return Max;
+
+    }
+};
+
+// Solution using Stack
+class Solution {
+public:
+    
+    int longestValidParentheses(string s) {
+        int len = 0;
+        int n = s.size();
+
+        stack<char> character;
+        stack<int> index;
+        index.push(-1);
+
+        for(int i=0;i<n;i++) {
+            if(s[i]=='(') {
+                character.push(s[i]);
+                index.push(i);
+            }else {
+                if(character.empty()) {
+                    index.push(i);
+                    continue;
+                }
+                character.pop();
+                index.pop();
+                if(i-index.top() > len) {
+                    len=i-index.top();
+                }
+
+            }
+        }
+        return len;
 
     }
 };

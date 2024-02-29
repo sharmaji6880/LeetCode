@@ -41,3 +41,41 @@ public:
        return head;
     }
 };
+
+
+// This approach uses few extra pointers to solve the problem
+// Hence , Space Complexity: O(1)
+class Solution {
+public:
+    
+    ListNode* deleteDuplicates(ListNode* head) {
+       if(head == nullptr) {
+           return nullptr;
+       }
+       ListNode *current = head;
+       ListNode *temp,*prev=nullptr;
+       
+       while(current && current->next) {
+           if(current->val != current->next->val) {
+               prev=current;
+               current = current->next;
+               continue;
+           }
+           
+           temp=current;
+           int val = current->val;
+           while(temp && temp->val ==val) {
+               temp=temp->next;
+           }
+           if(prev == nullptr) {
+               head=temp;
+               current=head;
+               continue;
+           }
+           prev->next=temp;
+           current=temp;
+       }
+       
+       return head;
+    }
+};

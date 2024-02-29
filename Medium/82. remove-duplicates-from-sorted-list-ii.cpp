@@ -1,6 +1,10 @@
+// This approach uses extra memory to solve the problem
+// It uses map data structure to store the frequencies of the numbers
+// appearing in the linked list and then 
+// the map is used to insert only those elements in the linked list
+// whose frequencey of occurrence is 1
 class Solution {
 public:
-    
     ListNode* deleteDuplicates(ListNode* head) {
        map<int,int> m;
        ListNode *current = head;

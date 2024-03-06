@@ -2,6 +2,8 @@
 > **Problem Name:** Linked List Cycle <br>
 > **Link:** [https://leetcode.com/problems/linked-list-cycle/](https://leetcode.com/problems/linked-list-cycle/) <br>
 
+### Using Map
+
     class Solution {
     public:
         bool hasCycle(ListNode *head) {
@@ -19,7 +21,7 @@
         }
     };
 
-    <br>
+### Using two pointers
 
     class Solution {
     public:

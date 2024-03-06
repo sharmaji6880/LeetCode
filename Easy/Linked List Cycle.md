@@ -1,6 +1,6 @@
 > **Problem Number:** 141 <br>
 > **Problem Name:** Linked List Cycle <br>
-> **Link:** [https://leetcode.com/problems/linked-list-cycle/](https://leetcode.com/problems/linked-list-cycle/ target="_blank") <br>
+> **Link:** [https://leetcode.com/problems/linked-list-cycle/](https://leetcode.com/problems/linked-list-cycle/target="_blank") <br>
 
 ### Using Map
 

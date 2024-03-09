@@ -2,7 +2,8 @@
 > **Problem Name:** Power of Two <br>
 > **Link:** [https://leetcode.com/problems/power-of-two/](https://leetcode.com/problems/power-of-two/) <br>
 
-**Using Repeated Division** <br>
+**Using Repeated Division** 
+
     class Solution {
     public:
         bool isPowerOfTwo(int n) {

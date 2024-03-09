@@ -51,3 +51,23 @@
             return arr;
         }
     };
+
+
+**Using Map**
+
+    class Solution {
+    public:
+        vector<int> sortArray(vector<int>& nums) {
+            map<int,int> m;
+            for(auto x:nums) {
+                m[x]++;
+            }
+            nums={};
+            for(auto x:m) {
+                for(int i=0;i<x.second;i++) {
+                    nums.push_back(x.first);
+                }
+            }
+            return nums;
+        }
+    };

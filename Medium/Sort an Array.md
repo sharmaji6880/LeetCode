@@ -6,21 +6,48 @@
 
     class Solution {
     public:
-        vector<int> sortArray(vector<int>& nums) {
-            map<int,int> m;
-            for(auto x:nums) {
-                m[x]++;
-            }
-            set<int> s;
-            for(auto x:nums) {
-                s.insert(x);
-            }
-            nums={};
-            for(auto x:s) {
-                for(int i=0;i<m[x];i++) {
-                    nums.push_back(x);
+        void merge(vector<int> &arr, int low, int mid , int high) {
+            int left = low;
+            int right = mid+1;
+            vector<int> c;
+
+            while(left <= mid && right <= high) {
+                if(arr[left] <= arr[right]) {
+                    c.push_back(arr[left]);
+                    left++;
+                }else {
+                    c.push_back(arr[right]);
+                    right++;
                 }
             }
-            return nums;
+            if(left > mid) {
+                while(right <= high) {
+                    c.push_back(arr[right]);
+                    right++;
+                }
+            }else if(right > high) {
+                while(left <= mid) {
+                    c.push_back(arr[left]);
+                    left++;
+                }
+            }
+            int index = 0;
+            for(int i=low;i<=high;i++) {
+                arr[i]=c[index];
+                index++;
+            }
+        }
+        void mergesort(vector<int> &arr,int low,int high ) {
+            if(low >= high) {
+                return;
+            }
+            int mid = (low+high)/2;
+            mergesort(arr,low,mid);
+            mergesort(arr,mid+1,high);
+            merge(arr,low,mid,high);
+        }
+        vector<int> sortArray(vector<int> &arr) {
+            mergesort(arr,0,arr.size()-1);
+            return arr;
         }
     };

@@ -27,8 +27,8 @@
             if(n<0) {
                 return false;
             }
-            bitset<32> b(n);
-            if(b.count()==1) {
+            bitset<32> b(n); // Creates a bitset of size 32 which contains the binary representation of n
+            if(b.count()==1) { // counts the number of set bits
                 return true;
             }
             return false;

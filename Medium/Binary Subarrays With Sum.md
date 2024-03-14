@@ -23,3 +23,40 @@
             return count;
         }
     };
+
+**Using Sliding Window**
+
+    class Solution {
+    public:
+        int numSubarraysWithSum(vector<int>& nums, int goal) {
+            int count = 0;
+            int left = 0,right = 0;
+            int sum = nums[0];
+            while(left <= right && right < nums.size()) {
+                if(sum < goal) {
+                    if(right < nums.size()) {
+                        right++;
+                        sum+=nums[right];
+                    }else {
+                        left++;
+                        sum-=nums[left];
+                    }
+                }else if(sum == goal) {
+                    count++;
+                    if(right==nums.size()-1) {
+                        left++;
+                        right=left;
+                        sum=nums[left];
+                    }else {
+                        right++;
+                        sum += nums[right];
+                    }
+                }else if(sum > goal) {
+                    left++;
+                    right=left;
+                    sum=nums[left];
+                }
+            }
+            return count;
+        }
+    };

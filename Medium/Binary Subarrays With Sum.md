@@ -4,6 +4,7 @@
 
 **Using Brute Force**
 
+    // Time Complexity: O(n^3)
     // For larger inputs, this might result into TLE
     class Solution {
     public:
@@ -23,39 +24,31 @@
             return count;
         }
     };
-
-**Using Sliding Window**
+    
+**Using Map and PrefixSum**
 
     class Solution {
     public:
         int numSubarraysWithSum(vector<int>& nums, int goal) {
-            int count = 0;
-            int left = 0,right = 0;
-            int sum = nums[0];
-            while(left <= right && right < nums.size()) {
-                if(sum < goal) {
-                    if(right < nums.size()) {
-                        right++;
-                        sum+=nums[right];
-                    }else {
-                        left++;
-                        sum-=nums[left];
-                    }
-                }else if(sum == goal) {
-                    count++;
-                    if(right==nums.size()-1) {
-                        left++;
-                        right=left;
-                        sum=nums[left];
-                    }else {
-                        right++;
-                        sum += nums[right];
-                    }
-                }else if(sum > goal) {
-                    left++;
-                    right=left;
-                    sum=nums[left];
+            int n = nums.size();
+            vector<int> pSum(n,0);
+            for(int i=0;i<n;i++) {
+                if(i==0) {
+                    pSum[i]=nums[i];
+                    continue;
                 }
+                pSum[i]=pSum[i-1]+nums[i];
+            }
+            map<int,int> m;
+            int count = 0;
+            for(int i=0;i<n;i++) {
+                if(m.count(pSum[i]-goal)) {
+                    count+= m[pSum[i]-goal];
+                }
+                if(pSum[i] - goal == 0) {
+                    count++;
+                }
+                m[pSum[i]]++;
             }
             return count;
         }

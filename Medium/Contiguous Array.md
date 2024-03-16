@@ -28,3 +28,31 @@
             return max(0,maxLen);
         }
     };
+
+**Using PrefixSum**
+
+    class Solution {
+    public:
+        int findMaxLength(vector<int>& nums) {
+            int n = nums.size();
+            for(int i=0;i<n;i++) {
+                if(nums[i]==0) {
+                    nums[i]=-1;
+                }
+            }
+            int pSum=0,maxLen=INT_MIN;
+            map<int,int> m;
+            m[pSum]=-1;
+            for(int i=0;i<n;i++) {
+                pSum+=nums[i];
+                if(m.count(pSum) && i-m[pSum] > maxLen) {
+                    maxLen = i-m[pSum];
+                }
+                if(!m.count(pSum)) {
+                    m[pSum]=i;
+                }
+                
+            }
+            return max(0,maxLen);
+        }
+    };

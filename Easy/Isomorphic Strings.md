@@ -5,24 +5,20 @@
     class Solution {
     public:
         bool isIsomorphic(string s, string t) {
-            map<char,char> m;
+            map<char,char> m1,m2;
             for(int i=0;i<s.size();i++) {
-                if(m.find(s[i]) == m.end()) {
-                    m[s[i]] = t[i];
+                if(m1.find(s[i]) == m1.end()) {
+                    m1[s[i]] = t[i];
                 }
-                else {
-                    if(m[s[i]] == t[i]) {
-                        continue;
-                    }
+                else if(m1[s[i]] != t[i]) {
                     return false;
                 }
-            }
-            set<char> Set;
-            for(auto x:m) {
-                if(Set.count(x.second)) {
+                if(m2.find(t[i]) == m2.end()) {
+                    m2[t[i]] = s[i];
+                }
+                else if(m2[t[i]] != s[i]) {
                     return false;
                 }
-                Set.insert(x.second);
             }
             return true;
         }

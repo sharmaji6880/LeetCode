@@ -47,8 +47,6 @@
                 }
 
             }
-            cout<<num<<endl;
-            cout<<count<<endl;
             return num-count;
         }
     };

@@ -5,9 +5,6 @@
     class Solution {
     public:
         int longestPalindrome(string s) {
-            if(s=="ccc") {
-                return 3;
-            }
             map<char,int> m;
             for(auto x:s) {
                 m[x]++;

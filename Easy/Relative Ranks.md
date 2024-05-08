@@ -4,32 +4,30 @@
 
     class Solution {
     public:
+        static bool cmp(int a , int b) {
+            return a > b;
+        }
         vector<string> findRelativeRanks(vector<int>& score) {
             vector<int> arr = score;
-            sort(arr.begin(),arr.end());
-            reverse(arr.begin(),arr.end());
-            
-            map<int,string> m;
+            sort(arr.begin(),arr.end(),cmp);
+
+            map<int,int> m;
             for(int i=0;i<score.size();i++) {
-                if(i==0) {
-                    m[arr[i]] = "Gold Medal";
-                    continue;
-                }
-                if(i==1) {
-                    m[arr[i]] = "Silver Medal";
-                    continue;
-                }
-                if(i==2) {
-                    m[arr[i]] = "Bronze Medal";
-                    continue;
-                }
-                m[arr[i]] = to_string(i+1);
+                m[score[i]] = i;
             }
-            vector<string> ans;
-            for(int i=0;i<score.size();i++) {
-                ans.push_back(m[score[i]]);
+            vector<string> ans(score.size());
+
+            for(int i=0;i<arr.size();i++) {
+                if(i==0) {
+                    ans[ m[arr[i]] ] = "Gold Medal";
+                }else if(i==1) {
+                    ans[ m[arr[i]] ] = "Silver Medal";
+                }else if(i==2) {
+                    ans[ m[arr[i]] ] = "Bronze Medal";
+                }else {
+                    ans[ m[arr[i]] ] = to_string(i+1);
+                }
             }
             return ans;
-
         }
     };

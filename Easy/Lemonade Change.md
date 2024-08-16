@@ -1,6 +1,6 @@
 > **Problem Number:** 860 <br>
 > **Problem Name:** Lemonade Change <br>
-> **Problem Link:** [https://leetcode.com/problems/lemonade-change/](https://leetcode.com/problems/lemonade-change/0) <br>
+> **Problem Link:** [https://leetcode.com/problems/lemonade-change/](https://leetcode.com/problems/lemonade-change/) <br>
 
     class Solution {
     public:

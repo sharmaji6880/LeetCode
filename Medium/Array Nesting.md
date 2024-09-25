@@ -26,7 +26,6 @@
                         break;
                     }
                 }
-                visited.clear();
             }
             return maxLen;
         }

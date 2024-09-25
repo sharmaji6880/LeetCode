@@ -19,7 +19,6 @@
                     if(visited.count(nums[index])) {
 
                         if( (int) visited.size() > maxLen) {
-                            cout<<"Hello"<<endl;
                             maxLen = visited.size();
                         }
                         visited.clear();

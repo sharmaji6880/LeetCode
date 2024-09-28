@@ -4,68 +4,68 @@
 
     class MyCircularDeque {
     public:
-        vector<int> dequeue;
+        vector<int> deque;
         int capacity;
         MyCircularDeque(int k) {
             capacity = k;
         }
         
         bool insertFront(int value) {
-            if( dequeue.size() == capacity ) {
+            if( deque.size() == capacity ) {
                 return false;
             }
-            dequeue.insert(dequeue.begin(),value);
+            deque.insert(deque.begin(),value);
             return true;
         }
         
         bool insertLast(int value) {
-            if( dequeue.size() == capacity ) {
+            if( deque.size() == capacity ) {
                 return false;
             }
-            dequeue.push_back(value);
+            deque.push_back(value);
             return true;
         }
 
         
         bool deleteFront() {
-            if( dequeue.empty() ) {
+            if( deque.empty() ) {
                 return false;
             }
-            dequeue.erase(dequeue.begin());
+            deque.erase(deque.begin());
             return true;
         }
         
         bool deleteLast() {
-            if( dequeue.empty() ) {
+            if( deque.empty() ) {
                 return false;
             }
-            dequeue.erase(dequeue.end());
+            deque.erase(deque.end());
             return true;
         }
         
         int getFront() {
-            if( dequeue.empty() ) {
+            if( deque.empty() ) {
                 return -1;
             }
-            return dequeue.front();
+            return deque.front();
         }
         
         int getRear() {
-            if( dequeue.empty() ) {
+            if( deque.empty() ) {
                 return -1;
             }
-            return dequeue.back();
+            return deque.back();
         }
         
         bool isEmpty() {
-            if( dequeue.size() == 0) {
+            if( deque.size() == 0) {
                 return true;
             }
             return false;
         }
         
         bool isFull() {
-            if( dequeue.size() == capacity ) {
+            if( deque.size() == capacity ) {
                 return true;
             }
             return false;

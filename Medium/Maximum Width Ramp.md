@@ -4,6 +4,8 @@
 
 **Using Brute Force:**
 
+    // This is a Brute Force Method and it may result into
+    // TLE for larger inputs
     class Solution {
     public:
         int maxWidthRamp(vector<int>& nums) {
@@ -27,6 +29,7 @@
     // indices since we are only looking for the max width
     // and it makes sense to start from the rightmost position
     // than to start searching from extreme left
+    // Expect TLE for larger inputs
     class Solution {
     public:
         int maxWidthRamp(vector<int>& nums) {

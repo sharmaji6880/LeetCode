@@ -19,3 +19,27 @@
             return max(0,maxWidth);
         }
     };
+
+**Improvized Brute Force:**
+
+    // In this code, in the second iteration, we begin from 
+    // the last index so that we don't have to check on those extra 
+    // indices since we are only looking for the max width
+    // and it makes sense to start from the rightmost position
+    // than to start searching from extreme left
+    class Solution {
+    public:
+        int maxWidthRamp(vector<int>& nums) {
+            int n = nums.size();
+            int maxWidth = INT_MIN;
+            
+            for(int i=0; i<n-1; i++) {
+                for(int j = n-1; j > i; j--) {
+                    if(nums[j] >= nums[i] && j - i > maxWidth) {
+                        maxWidth = j - i;
+                    }
+                }
+            }
+            return max(0,maxWidth);
+        }
+    };

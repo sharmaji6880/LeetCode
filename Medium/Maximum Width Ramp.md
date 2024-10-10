@@ -47,7 +47,7 @@
         }
     };
 
-**By Sorting the Indices**
+**By Sorting the Indices:**
 
     class Solution {
     public:

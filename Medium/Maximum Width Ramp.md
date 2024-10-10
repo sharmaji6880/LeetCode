@@ -46,3 +46,37 @@
             return max(0,maxWidth);
         }
     };
+
+**By Sorting the Indices**
+
+    class Solution {
+    public:
+        int maxWidthRamp(vector<int>& nums) {
+            int n = nums.size();
+
+            vector<int> indices;
+            for(int i=0;i<n;i++) {
+                indices.push_back(i);
+            }
+            
+            sort(indices.begin(),indices.end(), [&] (int i, int j) {
+                if(nums[i] == nums[j]) {
+                    return i < j;
+                }
+                return nums[i] < nums[j];
+            });
+
+            int maxWidth = 0;
+            int minIndex = INT_MAX;
+
+            for(int i=0; i<n;i++) {
+                if( indices[i] - minIndex > maxWidth ) {
+                    maxWidth = abs(indices[i] - minIndex);
+                }
+                if(indices[i] < minIndex) {
+                    minIndex = indices[i];
+                }
+            }
+            return max(maxWidth,0);
+        }
+    };

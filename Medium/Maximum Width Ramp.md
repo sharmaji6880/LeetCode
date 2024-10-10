@@ -80,3 +80,33 @@
             return max(maxWidth,0);
         }
     };
+
+**Using Monotonic Stack:**
+
+    class Solution {
+    public:
+        int maxWidthRamp(vector<int>& nums) {
+            stack<int> st;
+            int n = nums.size();
+            for(int i = 0; i < n; i++) {
+                if(st.empty()) {
+                    st.push(i);
+                    continue;
+                }
+                if( nums[i] < nums[st.top()] ) {
+                    st.push(i);
+                }
+            }
+            int maxWidth = 0;
+            for(int i = n - 1; i >= 0; i--) {
+                while(!st.empty() && nums[i] >= nums[st.top()]) {
+                    maxWidth = max(maxWidth,i-st.top());
+                    st.pop();
+                }
+                if(st.empty()) {
+                    break;
+                }
+            }
+            return maxWidth;
+        }
+    };

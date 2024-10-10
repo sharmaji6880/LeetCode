@@ -22,7 +22,7 @@
 
 **Improvized Brute Force:**
 
-    // In this code, in the second iteration, we begin from 
+    // In this approach, in the inner loop , we begin from 
     // the last index so that we don't have to check on those extra 
     // indices since we are only looking for the max width
     // and it makes sense to start from the rightmost position

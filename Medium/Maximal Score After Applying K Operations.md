@@ -2,6 +2,7 @@
 > **Problem Name:** Maximal Score After Applying K Operations <br>
 > **Problem Link:** [https://leetcode.com/problems/maximal-score-after-applying-k-operations/](https://leetcode.com/problems/maximal-score-after-applying-k-operations/) <br>
 
+**Brute Force:**
 
     // This is a Brute Force Solution
     // It might result into TLE for larger inputs

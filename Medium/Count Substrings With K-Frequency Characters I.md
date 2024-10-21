@@ -29,3 +29,26 @@
             return count;
         }
     };
+
+**Improvized Solution:** 
+
+    class Solution {
+    public:
+        int numberOfSubstrings(string s, int k) {
+            int n = s.size();
+            map<char,int> mp;
+            int count = 0;
+            for(int i=0;i<n;i++) {
+                mp.clear();
+                for(int j=i;j<n;j++) {
+                    mp[s[j]]++;
+                    if(mp[s[j]] >= k) {
+                        count += n - j;
+                        break;
+                    }
+                }
+            }
+            return count;
+
+        }
+    };

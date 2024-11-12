@@ -2,7 +2,7 @@
 > **Problem Name:** Most Beautiful Item for Each Query <br>
 > **Problem Link:** [https://leetcode.com/problems/most-beautiful-item-for-each-query](https://leetcode.com/problems/most-beautiful-item-for-each-query) <br>
 
-**Using Brute Force** <br>
+**Using Brute Force:** <br>
 
     // Time Complexity: O(n^2)
     // This is a brute force approach and for larger test cases,

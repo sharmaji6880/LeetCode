@@ -31,12 +31,6 @@
 
     class Solution {
     public:
-        // This is a custom comparator to sort the items vector
-        // as per the price of the item
-        static bool cmp(vector<int> &a, vector<int> &b) {
-            return a[0] < b[0];
-        }
-
         // This function is used to do custome Binary Search on the items 
         // vector as per our requirement in this problem
         int binarySearch(vector<vector<int>> &items, int &targetPrice, set<int> &s) {
@@ -96,7 +90,7 @@
         }
 
         vector<int> maximumBeauty(vector<vector<int>>& items, vector<int>& queries) {
-            sort(items.begin(),items.end(),cmp);
+            sort(items.begin(),items.end());
             set<int> s;
             vector<int> prefixMaxBeauty(items.size(),0);
             for(int i=0;i<prefixMaxBeauty.size();i++) {

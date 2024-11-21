@@ -28,3 +28,32 @@
             return true;
         }
     };
+
+**Optimal Solution:** <br>
+
+    class Solution {
+    public:
+        bool isZeroArray(vector<int>& nums, vector<vector<int>>& queries) {
+            int n = nums.size();
+            vector<int> arr(n,0);
+            int left,right;
+
+            for( auto x:queries ) {
+                left = x[0];
+                right = x[1];
+                arr[left] += 1;
+                if( right != n-1 ) {
+                    arr[right+1] -= 1;
+                }
+            }
+            for(int i=1;i<n;i++) {
+                arr[i] = arr[i-1] + arr[i];
+            }
+            for(int i=0;i<n;i++) {
+                if( arr[i] < nums[i] ) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    };

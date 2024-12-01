@@ -18,3 +18,25 @@
             return false;
         }
     };
+
+**Optimal Solution:** <br>
+
+    class Solution {
+    public:
+        bool checkIfExist(vector<int>& arr) {
+            set<int> s;
+            for(auto x:arr) {
+                if( x % 2 == 0 ) {
+                    if(s.count(x/2) || s.count(x*2)) {
+                        return true;
+                    }
+                }else {
+                    if(s.count(x*2)) {
+                        return true;
+                    }
+                }
+                s.insert(x);
+            }
+            return false;
+        }
+    };

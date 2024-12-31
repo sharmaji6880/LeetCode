@@ -4,7 +4,6 @@
 
 **Brute Force Approach:** <br>
 
-    // Brute Force Approach
     class Solution {
     public:
         int numSubarrayProductLessThanK(vector<int>& nums, int k) {

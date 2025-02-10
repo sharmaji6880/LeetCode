@@ -5,31 +5,21 @@
     class Solution {
     public:
         bool isDigit(char c) {
-            if(c-'0' >=0 && c-'0'<=9) {
+            if(c-'0' >= 0 && c-'0'<= 9) {
                 return true;
             }
             return false;
         }
         string clearDigits(string s) {
-            stack<char> st;
-            for(int i=0;i<s.size();i++) {
-                if(!isDigit(s[i])) {
-                    st.push(s[i]);
-                }else {
-                    st.pop();
-                }
-            }
-            s = "";
-            while(!st.empty()) {
-                s+=st.top();
-                st.pop();
-            }
+            string ans = "";
             int n = s.size();
-            for(int i=0;i<n/2;i++) {
-                char temp = s[i];
-                s[i] = s[n-1-i];
-                s[n-1-i] = temp;
+            for(int i=0;i<n;i++) {
+                if(!isDigit(s[i])) {
+                    ans.push_back(s[i]);
+                    continue;
+                }
+                ans.pop_back();
             }
-            return s;
+            return ans;
         }
     };

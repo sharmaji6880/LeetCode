@@ -1,27 +1,40 @@
-> **Problem Number:** 1267 <br>
-> **Problem Name:** Count Servers that Communicate <br>
-> **Problem Link:** [https://leetcode.com/problems/count-servers-that-communicate](https://leetcode.com/problems/count-servers-that-communicate) <br>
+**Problem No.:** 1267  
+**Problem Name:** Count Servers that Communicate  
+**Problem Link:** [LeetCode 1267 - Count Servers that Communicate](https://leetcode.com/problems/count-servers-that-communicate/description/)
 
-    class Solution {
-    public:
-        int countServers(vector<vector<int>>& grid) {
-            int m = grid.size(), n = grid[0].size();
-            vector<int> rowEleCount(m,0),colEleCount(n,0);
-            for(int i=0;i<m;i++) {
-                for(int j=0;j<n;j++) {
-                    if(grid[i][j]) {
-                        rowEleCount[i] += 1;
-                        colEleCount[j] += 1;
-                    }
-                }
+
+```java
+class Solution {
+    public int countServers(int[][] grid) {
+
+        int m = grid.length, n = grid[0].length;
+
+        int[] rowSum = new int[m];
+        int[] colSum = new int[n];
+
+        for(int i=0;i<m;i++) {
+            int sum = 0;
+            for(int j=0;j<n;j++) {
+                sum += grid[i][j];
             }
-            int count = 0;
-            for(int i=0;i<m;i++) {
-                for(int j=0;j<n;j++) {
-                    if(!grid[i][j]) continue;
-                    if(rowEleCount[i] > 1 || colEleCount[j] > 1) count++;
-                }
-            }
-            return count;
+            rowSum[i] = sum;
         }
-    };
+
+        for(int j=0;j<n;j++) {
+            int sum = 0;
+            for(int i=0;i<m;i++) {
+                sum += grid[i][j];
+            }
+            colSum[j] = sum;
+        }
+        int count = 0;
+        for(int i=0;i<m;i++) {
+            for(int j=0;j<n;j++) {
+                if(grid[i][j] == 1 && (rowSum[i] > 1 || colSum[j] > 1)) count++;
+            }
+        }
+        return count;
+        
+    }
+}
+```

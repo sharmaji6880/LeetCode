@@ -1,49 +1,31 @@
-> **Problem Number:** 3105 <br>
-> **Problem Name:** Longest Strictly Increasing or Strictly Decreasing Subarray <br>
-> **Problem Link:** [https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray](https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray) <br>
+**Problem No.:** 3105  
+**Problem Name:** Longest Strictly Increasing or Strictly Decreasing Subarray  
+**Problem Link:** [LeetCode 3105 - Longest Strictly Increasing or Strictly Decreasing Subarray](https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/description/)
 
-    class Solution {
-    public:
-        int longestMonotonicSubarray(vector<int>& nums) {
-            int ans = INT_MIN;
-            int count = 0, prev,n = nums.size();
-            for(int i=0;i<n;i++) {
-                if(count==0) {
-                    count++;
-                    prev = nums[i];
-                    continue;
-                }
-                if(nums[i]>prev) {
-                    count++;
-                    prev = nums[i];
-                    if(i==n-1 && count>ans) ans = count;
-                }else {
-                    if(count>ans) {
-                        ans = count;
-                    }
-                    count = 1;
-                    prev = nums[i];
-                }
+
+```java
+class Solution {
+    public int longestMonotonicSubarray(int[] nums) {
+        int n = nums.length, maxLen = Integer.MIN_VALUE;
+
+        Stack<Integer> st = new Stack<>();
+        for(int i=0;i<n;i++) {
+            if(!st.empty() && nums[i] <= st.peek()) {
+                st.clear();
             }
-            count = 0;
-            for(int i=0;i<n;i++) {
-                if(count==0) {
-                    count++;
-                    prev = nums[i];
-                    continue;
-                }
-                if(nums[i]<prev) {
-                    count++;
-                    prev = nums[i];
-                    if(i==n-1 && count>ans) ans = count;
-                }else {
-                    if(count>ans) {
-                        ans = count;
-                    }
-                    count = 1;
-                    prev = nums[i];
-                }
-            }
-            return max(1,ans);
+            st.push(nums[i]);
+            maxLen = Math.max(maxLen,st.size());     
         }
-    };
+        st.clear();
+        for(int i=0;i<n;i++) {
+            if(!st.empty() && nums[i] >= st.peek()) {
+                st.clear();
+            }
+            st.push(nums[i]);
+            maxLen = Math.max(maxLen,st.size());     
+        }
+        return maxLen;
+        
+    }
+}
+```
